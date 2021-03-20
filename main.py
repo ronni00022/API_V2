@@ -180,6 +180,17 @@ def Modificar_Pro(nombre: str,numero: str):
     conexion.commit()
     return {"mensaje":"Actulizacion Completada Exitosamente!"}
 
+@app.get('/api/Vacunado_Provincia/{provincia}')
+def Vacunado_Provincia(provincia: str):
+    conexion=sqlite3.connect('app.db')
+    registro=conexion.cursor()
+    registro.execute("SELECT * FROM VACUNADO WHERE PROVINCIA = '"+provincia+"'  ")
+    conexion.commit()
+    datos = registro.fetchall()
+    for I in datos:
+        return {"ID":I[0],"CEDULA":I[1],"NOMBRE":I[2],"APELLIDO":I[3],"FECHA_N":I[4],"VACUNA":I[5],"SIGNO":I[9]}
+
+
 
 
 
