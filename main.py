@@ -169,7 +169,7 @@ def Provinvias():
     conexion.commit()
     datos = data.fetchall()
     for i in datos:
-        a.append({"ID":[0],"NOMBRE": i[1],"LATITUD":i[3],"LONGITUD":i[4]})
+        a.append({"ID":[0],"NOMBRE": i[1],"LATITUD":i[2],"LONGITUD":i[3]})
     return a
 
 @app.get('/api/Modificar_Pro/{nombre}/{numero}')
